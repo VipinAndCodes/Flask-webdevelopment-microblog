@@ -1,0 +1,9 @@
+{%extends"base.html" %}
+{%block content%}
+    <h1> Welcome {{title}}</h1> 
+    <h3>hi welcome {{user.username}} </h3>
+    {%for post in posts%}
+    <div><p><u>{{post.author.username}} wrote a book about {{post.body}}</u> </p></div>
+
+    {%endfor %}
+{% endblock %}

@@ -8,7 +8,8 @@
 </head>
 <body>
     <nav><a href="https://www.google.com/">google link</a>
-    <a href="/login">Login</a></nav>
+    <a href={{ url_for('login') }}>Login</a></nav>
+    
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul>

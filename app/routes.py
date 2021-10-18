@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template,redirect,flash
+from flask import render_template,redirect,flash,url_for
 from app.forms import LoginForm
 
 @app.route('/')
@@ -17,9 +17,10 @@ def index():
 @app.route('/login',methods=['GET','POST'])
 def login():
     form=LoginForm()
-    if form_validate_on_submit():
+    if form.validate_on_submit():
         flash('Login for {} and remember me {}'.format(form.username.data,form.remember_me.data))
-        return redirect('/index')
+
+        return redirect(url_for('index'))
     return render_template('login.html',form=form)
 
 
